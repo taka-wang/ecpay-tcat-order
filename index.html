@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>TCAT Logistics</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style type="text/css">
+      .container-fluid {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      .error {
+        color:#FF0000;
+      }
+      #server-results {
+        min-height: 150px;
+      }
+      #result-div {
+        margin-top:50px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+    	
+      <div class="row">
+    		<div class="col-md-12">
+    			<h3 class="text-center">綠界物流(黑貓宅急便)測試頁面</h3>
+    		</div>
+    	</div>
+
+    	<div class="row">
+    		<div class="col-md-3"></div>
+    		<div class="col-md-6">
+    			<form id="TcatForm" class="form-horizontal" role="form">
+            
+            <div class="form-group">
+              <label class="control-label col-sm-2"  for="MerchantID">廠商編號</label>
+              <div class="col-sm-10"> 
+              <input type="text" class="form-control" id="MerchantID" name="MerchantID" value="2000132" required/>
+            </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2"  for="MerchantTradeNo">廠商交易編號</label>
+              <div class="col-sm-10"> 
+                <input type="text" class="form-control" id="MerchantTradeNo" name="MerchantTradeNo"/>
+              </div>
+            </div>
+
+            <input type="hidden" class="form-control" id="MerchantTradeDate" name="MerchantTradeDate" value="2018/01/31 23:40:18" />
+            <input type="hidden" class="form-control" id="LogisticsType" name="LogisticsType" value="Home" />
+            <input type="hidden" class="form-control" id="LogisticsSubType" name="LogisticsSubType" value="TCAT" />
+
+            <div class="form-group">
+    					<label class="control-label col-sm-2"  for="GoodsAmount">商品金額</label>
+              <div class="col-sm-10"> 
+      					<input type="text" class="form-control" id="GoodsAmount" name="GoodsAmount" value="1200" required/>
+              </div>
+    				</div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2"  for="GoodsName">商品名稱</label>
+              <div class="col-sm-10"> 
+                <input type="text" class="form-control" id="GoodsName" name="GoodsName"  value="一批貨" required/>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2"  for="SenderName">寄件人姓名</label>
+              <div class="col-sm-10"> 
+                <input type="text" class="form-control" id="SenderName" name="SenderName"  value="吳美國" required/>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2"  for="SenderCellPhone">寄件人手機</label>
+              <div class="col-sm-10"> 
+                <input type="text" class="form-control" id="SenderCellPhone" name="SenderCellPhone"  value="0988219664" required/>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2"  for="SenderZipCode">寄件人郵遞區號</label>
+              <div class="col-sm-10"> 
+                <input type="text" class="form-control" id="SenderZipCode" name="SenderZipCode"  value="236" required/>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2"  for="SenderAddress">寄件人地址</label>
+              <div class="col-sm-10"> 
+                <input type="text" class="form-control" id="SenderAddress" name="SenderAddress"  value="新北市1234567" required/>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2"  for="ReceiverName">收件人姓名</label>
+              <div class="col-sm-10"> 
+                <input type="text" class="form-control" id="ReceiverName" name="ReceiverName"  value="王平" required/>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2"  for="ReceiverPhone">收件人電話</label>
+              <div class="col-sm-10"> 
+                <input type="text" class="form-control" id="ReceiverPhone" name="ReceiverPhone"  value="0988219664" required/>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2"  for="ServerReplyURL">Server 端回覆網址</label>
+              <div class="col-sm-10"> 
+                <input type="text" class="form-control" id="ServerReplyURL" name="ServerReplyURL"  value="https://www.google.com.tw" required/>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2"  for="ReceiverZipCode">收件人郵遞區號</label>
+              <div class="col-sm-10"> 
+                <input type="text" class="form-control" id="ReceiverZipCode" name="ReceiverZipCode"  value="236" required/>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2"  for="ReceiverAddress">收件人地址</label>
+              <div class="col-sm-10"> 
+                <input type="text" class="form-control" id="ReceiverAddress" name="ReceiverAddress"  value="新北市12345678" required/>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2"  for="Temperature">溫層</label>
+              <div class="col-sm-10"> 
+                <select name="Temperature" class="form-control" id="Temperature">
+                  <option value="0003">冷凍</option>
+                  <option value="0001">常溫</option>
+                  <option value="0002">冷藏</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2"  for="Distance">距離</label>
+              <div class="col-sm-10"> 
+                <select name="Distance" class="form-control" id="Distance">
+                  <option value="00">同縣市</option>
+                  <option value="01">外縣市</option>
+                  <option value="02">離島</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2"  for="Specification">規格</label>
+              <div class="col-sm-10"> 
+                <select name="Specification" class="form-control" id="Specification">
+                  <option value="0002">90cm</option>
+                  <option value="0001">60cm</option>
+                  <option value="0003">120cm</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2"  for="ScheduledDeliveryTime">預定送達時段</label>
+              <div class="col-sm-10"> 
+                <select name="ScheduledDeliveryTime" class="form-control" id="ScheduledDeliveryTime">
+                  <option value="1">13 前</option>
+                  <option value="2">14 後</option>
+                  <option value="4">不限時</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="CheckMacValue">檢查碼</label>
+              <div class="col-sm-10"> 
+                <input type="text" class="form-control" id="CheckMacValue" name="CheckMacValue"/>
+              </div>
+            </div>
+
+            <div class="checkbox form-group pull-left">
+              <label><input id="remote" type="checkbox" />傳到綠界測試主機(或者本機)</label>
+            </div> 
+            <button type="button" id="send" class="btn btn-info pull-right">送出</button>
+    			</form>
+            
+          <div class="form-group" id="result-div">
+            <label for="server-results">結果</label>
+            <textarea class="form-control" id="server-results"></textarea>
+          </div>
+    		</div>
+    		<div class="col-md-3"></div>
+    	</div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/localization/messages_zh_TW.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
+    
+    <script type="text/javascript">
+      $(function() {
+        var genmac = function() {
+          $("#MerchantTradeDate").val(moment().format('YYYY/MM/DD hh:mm:ss'));
+          let params = $("#TcatForm").serializeArray().reduce(function(a, x) { a[x.name] = x.value; return a; }, {});
+          delete params["CheckMacValue"];
+          let od = {};
+          let temp_arr = (Object.keys(params).sort(function (a, b) {
+            return a.toLowerCase().localeCompare(b.toLowerCase());
+          }));
+          let raw = temp_arr.forEach(function (key) {od[key] = params[key];});
+          raw = JSON.stringify(od).replace(/":"/g, '=');
+          raw = raw.replace(/","|{"|"}/g, '&');
+          raw = "HashKey=5294y06JbISpM5x9" + raw + "HashIV=v77hoKGq4kWxNNIS"
+          let encode_data = encodeURIComponent(raw);
+
+          encode_data = encode_data.toLowerCase();
+          encode_data = encode_data.replace(/\'/g,"%27");
+          encode_data = encode_data.replace(/\~/g,"%7e");
+          encode_data = encode_data.replace(/\%20/g,"+");
+          console.log(encode_data);
+          let chksum = CryptoJS.MD5(encode_data).toString(CryptoJS.enc.Hex).toUpperCase();
+          $("#CheckMacValue").val(chksum);
+        }
+
+        // binding input change
+        $('form :input').change(function(){
+          genmac();
+        });
+
+        // submit
+        $('#send').click(function() {
+          if ($("#TcatForm").valid() == false) return;
+          var server_url = "http://localhost:8888/create";
+          if ( $('#MerchantTradeNo').val().length === 0  ) $("#MerchantTradeNo").prop('disabled', true);
+          genmac();
+          if($("#remote").prop('checked') == true){
+            server_url = "https://logistics-stage.ecpay.com.tw/Express/Create"; 
+          }
+
+          $.ajax({
+              url : server_url,
+              type: "POST",
+              data : $("#TcatForm").serialize()
+          }).done(function(response){ //
+              $("#MerchantTradeNo").prop('disabled', false);
+              $("#server-results").html(response);
+          });
+
+        });
+        
+
+      });
+    </script>
+   
+  </body>
+</html>
